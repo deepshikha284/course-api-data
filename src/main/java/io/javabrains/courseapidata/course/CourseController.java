@@ -12,26 +12,24 @@ public class CourseController {
     @Autowired
     private CourseService courseService;
 
-    @RequestMapping("/topics/{topicId}/courses")
+    @RequestMapping("/courses")
     @ResponseBody
-    public List<Course> getAllCourses(@PathVariable String topicId){
-        return courseService.getAllCoursesByTopicId(topicId);
+    public List<Course> getAllCourses(){
+        return courseService.getAllCourses();
     }
 
-    @RequestMapping("/topics/{topicId}/courses/{courseId}")
-        public Course getCourseByTopicIdAndCourseId(@PathVariable String topicId, @PathVariable String courseId){
-        return courseService.getCourseByTopicIdAndCourseId(topicId, courseId);
+    @RequestMapping("/courses/{courseId}")
+        public Course getCourseByCourseId(@PathVariable String courseId){
+        return courseService.getCourseByCourseId(courseId);
     }
 
-    @RequestMapping(method=RequestMethod.POST, value="/topics/{topicId}/courses")
-    public void addCourse(@RequestBody Course course, @PathVariable String topicId){
-        //course.setTopic(new Topic(topicId, "", ""));
+    @RequestMapping(method=RequestMethod.POST, value="/courses")
+    public void addCourse(@RequestBody Course course){
         courseService.addCourse(course);
     }
 
-    @RequestMapping(method=RequestMethod.PUT, value="/topics/{topicId}/courses/{courseId}")
-    public void updateCourse(@RequestBody Course course, @PathVariable String topicId, @PathVariable String courseId){
-        //course.setTopic(new Topic(topicId, "", ""));
+    @RequestMapping(method=RequestMethod.PUT, value="/courses")
+    public void updateCourse(@RequestBody Course course){
         courseService.updateCourse(course);
     }
 

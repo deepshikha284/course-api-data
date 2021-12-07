@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,7 +32,7 @@ public class TopicService {
         topicRepository.save(topic);
     }
 
-    public void updateTopic(String id, Topic topic) {
+    public void updateTopic(Topic topic) {
         //for(int i=0; i<topics.size(); i++){
         //  Topic t=topics.get(i);
         // if (t.getId().equals(id)){

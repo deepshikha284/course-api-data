@@ -30,7 +30,4 @@ public class Course {
         this.courseDesc = courseDesc;
     }
 
-//    public void setTopic(Topic topic) {
-//        this.topic = topic;
-//    }
 }
